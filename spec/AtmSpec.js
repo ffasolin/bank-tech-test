@@ -11,8 +11,13 @@ describe('Atm', function() {
     expect(atm.displayBalance()).toBe(0);
   });
 
-  it('makes a deposit into balance', function() {
-    atm.makeDeposit(500)
+  it('makes a deposit', function() {
+    atm.deposit(500)
     expect(atm.displayBalance()).toBe(500);
+  });
+
+  it('makes a withdrawal', function() {
+    atm.withdraw(500)
+    expect(atm.displayBalance()).toBe(-500);
   });
 });
