@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ffasolin/bank-tech-test/issues"
   },
-  "homepage": "https://github.com/ffasolin/bank-tech-test#readme"
+  "homepage": "https://github.com/ffasolin/bank-tech-test#readme",
+  "dependencies": {
+    "jasmine": "^2.6.0"
+  }
 }
