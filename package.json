@@ -1,0 +1,19 @@
+{
+  "name": "bank-tech-test",
+  "version": "1.0.0",
+  "description": "A program to model the functionality of a bank",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffasolin/bank-tech-test.git"
+  },
+  "author": "Filipe Fasolin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ffasolin/bank-tech-test/issues"
+  },
+  "homepage": "https://github.com/ffasolin/bank-tech-test#readme"
+}
