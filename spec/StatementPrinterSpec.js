@@ -5,6 +5,6 @@ describe('StatementPrinter', function() {
 
   it('has a statement header', function() {
     statement = new StatementPrinter();
-    expect(statement.header()).toBe('date || credit || debit || balance');
+    expect(statement.header).toBe('date || credit || debit || balance');
   });
 });
