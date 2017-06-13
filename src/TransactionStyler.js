@@ -3,17 +3,17 @@ function TransactionStyler() {
 }
 
 TransactionStyler.prototype.styledDeposit = function(deposit) {
-  var flatDeposit = [].concat.apply([], deposit);
-
-  this.transactions.push(`${flatDeposit[0]} || ${flatDeposit[1].toFixed(2)}` +
-          ` || || ${flatDeposit[2].toFixed(2)}`);
+  for (var i = 0; i < deposit.length; i++) {
+    this.transactions.push(`${deposit[i][0]} || ${deposit[i][1].toFixed(2)}` +
+          ` || || ${deposit[i][2].toFixed(2)}`);
+  }
 };
 
 TransactionStyler.prototype.styledWithdrawal = function(withdraw) {
-  var flatWithdraw = [].concat.apply([], withdraw);
-
-  this.transactions.push(`${flatWithdraw[0]} || || ${flatWithdraw[1].toFixed(2)}` +
-          ` || ${flatWithdraw[2].toFixed(2)}`);
+  for (var i = 0; i < withdraw.length; i++) {
+    this.transactions.push(`${withdraw[i][0]} || || ${withdraw[i][1].toFixed(2)}` +
+          ` || ${withdraw[i][2].toFixed(2)}`);
+  }
 };
 
 module.exports = TransactionStyler;
