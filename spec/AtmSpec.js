@@ -1,12 +1,10 @@
 const Atm = require('../src/Atm.js');
-const Transaction = require('../src/Transaction.js');
 
 describe('Atm', function() {
-  var atm, transaction;
+  var atm, wdraw;
 
   beforeEach(function() {
     atm = new Atm();
-    transaction = new Transaction();
   });
 
   it('displays an initial balance of 0', function() {
@@ -30,6 +28,7 @@ describe('Atm', function() {
 
   it('withdrawals are stored into withdrawals array', function() {
     atm.withdraw('13/06/2017', 500);
-    expect(atm.transaction.withdrawalsList).toContain(['13/06/2017', 500, -500]);
+    wdraw = ['13/06/2017', 500, -500];
+    expect(atm.transaction.withdrawalsList).toContain(wdraw);
   });
 });
