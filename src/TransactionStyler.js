@@ -3,11 +3,15 @@ function TransactionStyler() {
 }
 
 TransactionStyler.prototype.styledDeposit = function(deposit) {
-  this.transactions.push(`${deposit[0]} || ${deposit[1].toFixed(2)} || || ${deposit[2].toFixed(2)}`);
+  var flatDeposit = [].concat.apply([], deposit);
+
+  this.transactions.push(`${flatDeposit[0]} || ${flatDeposit[1].toFixed(2)} || || ${flatDeposit[2].toFixed(2)}`);
 };
 
 TransactionStyler.prototype.styledWithdrawal = function(withdraw) {
-  this.transactions.push(`${withdraw[0]} || || ${withdraw[1].toFixed(2)} || ${withdraw[2].toFixed(2)}`);
+  var flatWithdraw = [].concat.apply([], withdraw);
+
+  this.transactions.push(`${flatWithdraw[0]} || || ${flatWithdraw[1].toFixed(2)} || ${flatWithdraw[2].toFixed(2)}`);
 };
 
 module.exports = TransactionStyler;

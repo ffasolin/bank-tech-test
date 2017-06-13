@@ -8,14 +8,14 @@ describe('TransactionStyler', function() {
   });
 
   it('records all transactions', function() {
-    transaction = ['13/06/2017', 500, 500];
+    transaction = [['13/06/2017', 500, 500]];
     styled = '13/06/2017 || 500.00 || || 500.00';
     styler.styledDeposit(transaction)
     expect(styler.transactions[0]).toBe(styled);
   });
 
   it('records all transactions', function() {
-    transaction = ['13/06/2017', 500, -500];
+    transaction = [['13/06/2017', 500, -500]];
     styled = '13/06/2017 || || 500.00 || -500.00';
     styler.styledWithdrawal(transaction)
     expect(styler.transactions[0]).toBe(styled);
