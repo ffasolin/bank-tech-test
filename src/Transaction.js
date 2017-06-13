@@ -1,6 +1,6 @@
 function Transaction() {
-this.depositsList = [];
-this.withdrawalsList = [];
+  this.depositsList = [];
+  this.withdrawalsList = [];
 }
 
 Transaction.prototype.saveDeposit = function(transfer) {
