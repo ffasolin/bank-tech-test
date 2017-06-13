@@ -1,4 +1,4 @@
-const Atm = require('../src/Atm.js')
+const Atm = require('../src/Atm.js');
 
 describe('Atm', function() {
   var atm;
@@ -12,12 +12,12 @@ describe('Atm', function() {
   });
 
   it('makes a deposit', function() {
-    atm.deposit(500)
+    atm.deposit(500);
     expect(atm.displayBalance()).toBe(500);
   });
 
   it('makes a withdrawal', function() {
-    atm.withdraw(500)
+    atm.withdraw(500);
     expect(atm.displayBalance()).toBe(-500);
   });
 });
