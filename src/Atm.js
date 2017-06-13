@@ -7,20 +7,26 @@ function Atm(balance = 0) {
   this.styler = new TransactionStyler();
 }
 
+Atm.prototype.displayBalance = function() {
+  return this._balance;
+};
+
 Atm.prototype.deposit = function(date, amount) {
   this._balance += amount;
-  this.transaction.saveDeposit([date, amount, this._balance]);
-  this.styler.styledDeposit(this.transaction.depositsList);
+  this.transaction.saveTransaction([date, amount.toFixed(2), '',
+                                    this._balance.toFixed(2)]);
+  this.getStyle();
 };
 
 Atm.prototype.withdraw = function(date, amount) {
   this._balance -= amount;
-  this.transaction.saveWithdrawal([date, amount, this._balance]);
-  this.styler.styledWithdrawal(this.transaction.withdrawalsList);
+  this.transaction.saveTransaction([date, '', amount.toFixed(2),
+                                    this._balance.toFixed(2)]);
+  this.getStyle();
 };
 
-Atm.prototype.displayBalance = function() {
-  return this._balance;
+Atm.prototype.getStyle = function() {
+  this.styler.styledTransaction(this.transaction.transactionsList);
 };
 
 module.exports = Atm;

@@ -1,7 +1,7 @@
 const Atm = require('../src/Atm.js');
 
 describe('Atm', function() {
-  var atm, wdraw;
+  var atm, depo, wdraw;
 
   beforeEach(function() {
     atm = new Atm();
@@ -11,24 +11,33 @@ describe('Atm', function() {
     expect(atm.displayBalance()).toBe(0);
   });
 
-  it('makes a deposit', function() {
-    atm.deposit('13/06/2017', 500);
-    expect(atm.displayBalance()).toBe(500);
+  describe('deposit', function() {
+    beforeEach(function() {
+      atm.deposit('13/06/2017', 500);
+    });
+
+    it('makes a deposit', function() {
+      expect(atm.displayBalance()).toBe(500);
+    });
+
+    it('deposits are stored into deposits array', function() {
+      depo = ['13/06/2017', (500).toFixed(2), '', (500).toFixed(2)];
+      expect(atm.transaction.transactionsList).toContain(depo);
+    });
   });
 
-  it('makes a withdrawal', function() {
-    atm.withdraw('13/06/2017', 500);
-    expect(atm.displayBalance()).toBe(-500);
-  });
+  describe('withdrawal', function() {
+    beforeEach(function() {
+      atm.withdraw('13/06/2017', 500);
+    });
 
-  it('deposits are stored into deposits array', function() {
-    atm.deposit('13/06/2017', 500);
-    expect(atm.transaction.depositsList).toContain(['13/06/2017', 500, 500]);
-  });
+    it('makes a withdrawal', function() {
+      expect(atm.displayBalance()).toBe(-500);
+    });
 
-  it('withdrawals are stored into withdrawals array', function() {
-    atm.withdraw('13/06/2017', 500);
-    wdraw = ['13/06/2017', 500, -500];
-    expect(atm.transaction.withdrawalsList).toContain(wdraw);
+    it('withdrawals are stored into withdrawals array', function() {
+      wdraw = ['13/06/2017', '', (500).toFixed(2), (-500).toFixed(2)];
+      expect(atm.transaction.transactionsList).toContain(wdraw);
+    });
   });
 });
